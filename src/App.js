@@ -1,5 +1,5 @@
+import React,{useEffect, useContext} from 'react';
 import SetTimer from './components/SetTimer'
-import { Children, useContext, useEffect } from 'react';
 import { SettingsContext } from './context/SettingsContext';
 import Button from './components/Button';
 import SettingButton from './context/SettingsContext';
@@ -8,11 +8,11 @@ import CountdownAnimation from './components/CountdownAnimation'
 
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
-  useEffect(() => updateExecute(executing),[executing, startAnimate]);
+  useEffect(() => updateExecute(executing),[executing, startAnimate, updateExecute]);
   return (
     <div className="container">
       <h1>Pomodoro</h1>
-      <small>Let's be productive buddy :)</small>
+      <small>Let's be productive </small>
         {pomodoro !== 0 ?
           <SetTimer/>:
             <>
