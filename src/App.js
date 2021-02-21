@@ -1,16 +1,16 @@
 import SetTimer from './components/SetTimer'
 import { Children, useContext, useEffect } from 'react';
-import { SettingContext } from './context/SettingsContext';
+import { SettingsContext } from './context/SettingsContext';
 import Button from './components/Button';
 import SettingButton from './context/SettingsContext';
 import CountdownAnimation from './components/CountdownAnimation'
 
 
 function App() {
-  const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingContext);
+  const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   useEffect(() => updateExecute(executing),[executing, startAnimate]);
   return (
-    <div className="conatiner">
+    <div className="container">
       <h1>Pomodoro</h1>
       <small>Let's be productive buddy :)</small>
         {pomodoro !== 0 ?

@@ -1,8 +1,7 @@
-import React, {createContext} from 'react';
-import {useState} from 'react';
+import {useState, createContext} from 'react';
 
 //this component contains the whole application
-export const SettingContext = createContext()
+export const SettingsContext = createContext();
 
 const SettingsContextProvider = (props) => {
   const [pomodoro, setPomodoro] = useState(0); //the timer, runs the entire app
@@ -57,7 +56,7 @@ const SettingsContextProvider = (props) => {
     return `${minutes}:${seconds}`;
   }
   return(
-    <SettingContext.Provider 
+    <SettingsContext.Provider 
     value={{
       stopStudying,
       updateExecute,
@@ -71,7 +70,7 @@ const SettingsContextProvider = (props) => {
       updateExecute,
       children }}>
       {props.children}
-    </SettingContext.Provider>
+    </SettingsContext.Provider>
   );
 }
 export default SettingsContextProvider;

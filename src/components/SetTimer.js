@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { SettingContext } from '../context/SettingsContext';
+import { SettingsContext } from '../context/SettingsContext';
 import Button from './Button';
 
 const SetTimer = () => {
-  const {updateExecute} = useContext(SettingContext); 
+   
   const [newTimer, setNewTimer] = useState({
     study: 0.3,
     short: 0.2,
     long: 1, //1 minute
     active: 'study' //default is study
   })
-  const handleSubmit = (e) =>{
-    e.preventDefault();
+  const {updateExecute} = useContext(SettingsContext);
+
+  const handleSubmit = input =>{
+    input.preventDefault();
     updateExecute(newTimer)
   }
   const handleChange = input =>{
@@ -42,13 +44,13 @@ const SetTimer = () => {
   }
   return(
     <div className='form-container'>
-      <form noValidate>
+      <form noValidate onSubmit={handleSubmit}>
         <div className='input-wrapper'>
-          <input className='input' name='study' onChange={handleChange} value={newTimer.study}/>
-          <input className='input' name='shortBreak' onChange={handleChange} value={newTimer.short}/>
-          <input className='input' name='longBreak' onChange={handleChange} value={newTimer.long}/>
+          <input className='input' type='number' name='study' onChange={handleChange} value={newTimer.study}/>
+          <input className='input' type='number' name='shortBreak' onChange={handleChange} value={newTimer.short}/>
+          <input className='input' type='number' name='longBreak' onChange={handleChange} value={newTimer.long}/>
         </div>
-        <Button title="Set time" _callBack={handleSubmit} />
+        <button type='submit'> Set Timer</button> 
       </form>
     </div>
   );
