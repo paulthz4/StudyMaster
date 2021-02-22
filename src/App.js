@@ -14,7 +14,6 @@ function App() {
       <h1>Pomodoro</h1>
       <small>Let's be productive </small>
         {pomodoro !== 0 ?
-          <SetTimer/>:
             <>
             <ul className='labels'>
               <li>
@@ -39,17 +38,19 @@ function App() {
                 <CountdownAnimation
                   key={pomodoro}
                   timer={pomodoro}
-                  animate={startAnimate}>
-                    {children}
+                  animate={startAnimate}
+                >
+                  {children}
                 </CountdownAnimation>
               </div>
-              <div className='button-wrapper'>
-                <Button title='Start' activeClass={!startAnimate? 'active':undefined} _callBack={startStudying}/>
-                <Button title='Pause' activeClass={startAnimate? 'active':undefined} _callBack={pauseStudying}/>
               </div>
-            </div>
-            </>
-        }
+              <div className='button-wrapper'>
+                <Button title='Start' activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}/>
+                <Button title='Pause' activeClass={startAnimate? 'active' : undefined} _callBack={pauseStudying}/>
+              </div>
+            
+            </> : <SetTimer/> }
+        
     </div>
   );
 }

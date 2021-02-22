@@ -3,34 +3,39 @@ import {useState, createContext} from 'react';
 //this component contains the whole application
 export const SettingsContext = createContext();
 
-const SettingsContextProvider = (props) => {
+function SettingsContextProvider(props) {
   const [pomodoro, setPomodoro] = useState(0); //the timer, runs the entire app
   const [executing,setExecuting] = useState({}); //object that comes from the setting page, carrier of all the settings timer
-  const [startAnimate, setAnimate] = useState(false); //animation of the timer
+  const [startAnimate, setStartAnimate] = useState(false); //animation of the timer
 
   //recieves stater, update current object state to whatever it is and set timer value
-  function setCurrenTimer(active_state){
+  function setCurrentTimer(active_state){
     updateExecute({
       ...executing,
       active: active_state
-    });
+    })
     setTimerTime(executing);
   }
 
   function startStudying(){
-    setAnimate(true);
+    setStartAnimate(true);
   }
   function pauseStudying(){
-    setAnimate(false);
+    setStartAnimate(false);
+  }
+  const children = ({ remainingTime}) =>{
+    const minutes = Math.floor(remainingTime/60);
+    const seconds = remainingTime%60;
+    return `${minutes}:${seconds}`;
   }
   function stopStudying(){
-    setAnimate(false);
+    setStartAnimate(false);
   }
-  const SettingButton = () =>{
+  const SettingButton = () => {
     setExecuting({});
-      setPomodoro(0)
+    setPomodoro(0);
   }
-  const updateExecute = (updatedSettings)=>{
+  const updateExecute = updatedSettings =>{
     setExecuting(updatedSettings);
     setTimerTime(updatedSettings);
   }
@@ -50,11 +55,7 @@ const SettingsContextProvider = (props) => {
         break;
     }
   }
-  const children = ({ remainingTime}) =>{
-    const minutes = Math.floor(remainingTime/60);
-    const seconds = remainingTime%60;
-    return `${minutes}:${seconds}`;
-  }
+  
   return(
     <SettingsContext.Provider 
     value={{
@@ -66,9 +67,9 @@ const SettingsContextProvider = (props) => {
       startStudying,
       pauseStudying,
       SettingButton,
-      setCurrenTimer,
-      updateExecute,
-      children }}>
+      setCurrentTimer,
+      children 
+    }}>
       {props.children}
     </SettingsContext.Provider>
   );

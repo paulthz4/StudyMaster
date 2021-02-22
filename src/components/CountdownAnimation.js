@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import  {CountdownCircleTimer } from 'react-countdown-circle-timer';
+import { useContext } from 'react';
+import  {CountdownCircleTimer} from 'react-countdown-circle-timer';
 import { SettingsContext } from '../context/SettingsContext';
 
-const Countdown = ({key = 1, timer = 20, animate = true, children})=> {
+const CountdownAnimation = ({key, timer, animate, children})=> {
   const {stopStudying} = useContext(SettingsContext); //useContext() method allows you to access contents of Setting.js
   return(
     <CountdownCircleTimer
@@ -10,9 +10,9 @@ const Countdown = ({key = 1, timer = 20, animate = true, children})=> {
       isPlaying={animate}
       duration={timer*60}
       colors={[
-        ['#fe6f6b', 0.33],
-        ['#fe6f6b', 0.33],
-        ['#fe6f6b', 0.33]
+        ['#FE6F6B', 0.33],
+        ['#FE6F6B', 0.33],
+        ['#FE6F6B', 0.33]
       ]}
       strokeWidth={10}
       size={220}
@@ -25,4 +25,4 @@ const Countdown = ({key = 1, timer = 20, animate = true, children})=> {
     </CountdownCircleTimer>
   )
 }
-export default Countdown;
+export default CountdownAnimation;

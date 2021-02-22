@@ -1,23 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { SettingsContext } from '../context/SettingsContext';
-import Button from './Button';
 
 const SetTimer = () => {
    
   const [newTimer, setNewTimer] = useState({
-    study: 0.3,
-    short: 0.2,
-    long: 1, //1 minute
+    study: 25,//25 minutes
+    short: 5,//5 minutes
+    long: 10, //10 minutes
     active: 'study' //default is study
   })
   const {updateExecute} = useContext(SettingsContext);
 
-  const handleSubmit = input =>{
-    input.preventDefault();
-    updateExecute(newTimer)
-  }
+  
   const handleChange = input =>{
-    const {name, value} = input.target
+    const {name, value} = input.target;
      //overwrite the default value to the input value
     switch(name){
       case 'study':
@@ -40,7 +36,11 @@ const SetTimer = () => {
           break;
       default: break;
     }
-    console.log(newTimer);
+    //console.log(newTimer); 
+  }
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    updateExecute(newTimer);
   }
   return(
     <div className='form-container'>
@@ -50,7 +50,7 @@ const SetTimer = () => {
           <input className='input' type='number' name='shortBreak' onChange={handleChange} value={newTimer.short}/>
           <input className='input' type='number' name='longBreak' onChange={handleChange} value={newTimer.long}/>
         </div>
-        <button type='submit'> Set Timer</button> 
+        <button type="submit"> Set Timer</button> 
       </form>
     </div>
   );
