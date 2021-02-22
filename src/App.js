@@ -8,7 +8,7 @@ import CountdownAnimation from './components/CountdownAnimation'
 
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
-  useEffect(() => updateExecute(executing),[executing, startAnimate, updateExecute]);
+  useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
   return (
     <div className="container">
       <h1>Pomodoro</h1>
