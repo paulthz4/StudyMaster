@@ -41,8 +41,8 @@ function SettingsContextProvider(props) {
   }
   const setTimerTime = (evaluate) =>{
     switch(evaluate.active){
-      case 'work':
-        setPomodoro(evaluate.work);
+      case 'study':
+        setPomodoro(evaluate.study);
         break;
       case 'short':
         setPomodoro(evaluate.short);
