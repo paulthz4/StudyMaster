@@ -43,12 +43,12 @@ const SetTimer = () => {
     updateExecute(newTimer);
   }
   return(
-    <div className='form-container'>
+    <div className="form-container">
       <form noValidate onSubmit={handleSubmit}>
-        <div className='input-wrapper'>
-          <input className='input' type='number' name='study' onChange={handleChange} value={newTimer.study}/>
-          <input className='input' type='number' name='shortBreak' onChange={handleChange} value={newTimer.short}/>
-          <input className='input' type='number' name='longBreak' onChange={handleChange} value={newTimer.long}/>
+        <div className="input-wrapper">
+          <input className="input" type="number" name="study" onChange={handleChange} value={newTimer.study}/>
+          <input className="input" type="number" name="shortBreak" onChange={handleChange} value={newTimer.short}/>
+          <input className="input" type="number" name="longBreak" onChange={handleChange} value={newTimer.long}/>
         </div>
         <button type="submit"> Set Timer</button> 
       </form>
