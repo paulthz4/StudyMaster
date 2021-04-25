@@ -1,3 +1,11 @@
+@keyframes buttonDown{
+  from {box-shadow: 4px 5px 0px black;}
+  to {background-color: #540b0e;
+    transform: translateY(2px);
+    box-shadow:none;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -28,7 +36,9 @@ code {
   font-size:2.6rem;
   margin-bottom:0.2rem;
 }
-
+input{
+  outline:none;
+}
 .container .labels {
   list-style: none;
   display: flex;
@@ -37,8 +47,13 @@ code {
   padding:.3rem .3rem;
   background-color: #e09f3e;
   border-radius: 1.5rem;
+  padding:1em;
+
 }
 
+.labels:hover{
+  background-color: #ffb546;
+}
 .active-label {
   color: #0C0E1B;
   background-color: #FE6F6B;
@@ -49,6 +64,7 @@ code {
   flex:2;
   align-items: center;
   justify-content: center;
+  height: fit-content;
 }
 
 .time-wrapper {
@@ -78,10 +94,18 @@ button {
   border:none;
   border-radius:3rem;
   margin:0.2rem;;
-  background:#540b0e;
+  background:#6b191c;
   min-width: 90px;
-  height: 50px;
+  height: 60px;
   cursor: pointer;
+  width: 8em;
+  font-size: 15pt;
+  box-shadow: 4px 5px 0px black;
+}
+
+button:hover{
+  animation:buttonDown 0.5s;
+  animation-fill-mode: forwards ;
 }
 
 .button-wrapper button.activve {
@@ -96,14 +120,14 @@ button {
   margin: 1.5rem;
 }
 .input-wrapper input {
-  height: 30px;
-  width: 30px;
-  padding: 2rem;
+  height: 50px;
+  width: 50px;
+  padding: 3rem;
   background-color: #0C0E1B;
   color:#C9CCEA;
   border: none;
   border-radius: 50%;
   margin-right: 0.3rem;
   text-align: center;
-  font-size: 14pt;
+  font-size: 22pt;
 }

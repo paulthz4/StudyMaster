@@ -9,10 +9,11 @@ import CountdownAnimation from './components/CountdownAnimation'
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
+  
   return (
     <div className="container">
       <h1>Pomodoro</h1>
-      <small>Let's be productive </small>
+      <h2>Let's be productive </h2>
         {pomodoro !== 0 ?
             <>
             <ul className='labels'>
@@ -45,8 +46,9 @@ function App() {
               </div>
               </div>
               <div className='button-wrapper'>
-                <Button title='Start' activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}/>
-                <Button title='Pause' activeClass={startAnimate? 'active' : undefined} _callBack={pauseStudying}/>
+                <Button title='Start' className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}/>
+                <Button title='Pause' className="timer-btns" activeClass={startAnimate? 'active' : undefined} _callBack={pauseStudying}/>
+                {/* <button className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}>Start</button> */}
               </div>
             
             </> : <SetTimer/> }
