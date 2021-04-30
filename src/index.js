@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import SettingsContextProvider from './context/SettingsContext';
 import Cloud from './components/Cloud';
+import Sun from './components/Sun';
 //import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <SettingsContextProvider>
+    {/* <Sun/> */}
     <div className="cloud" style={{top:"12%"}}></div>
     <div className="cloud"  style={{top:"50%"}}></div>
     <App />
