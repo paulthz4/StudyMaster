@@ -5,19 +5,7 @@
     box-shadow:none;
   }
 }
-@keyframes slisdsde{
-  0%, 100% {
-    transform: translate(100%, 0);
-  }
-  
-  50% {
-    transform: translate(100%, 0);
-  }
-  
-  80% {
-    transform: translate(-100%, 0);
-  }
-}
+
 @keyframes slide{
   0%{
     left:0%;
@@ -32,20 +20,6 @@
   }
 }
 
-@keyframes fill{
-  from{
-    fill:transparent;
-  }
-  to{
-    fill:white;
-  }
-}
-
-@keyframes line-anim{
-  to{
-    stroke-dashoffset:0;
-  }
-}
 
 body {
   margin: 0;
@@ -55,6 +29,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* z-index: 0; */
+  overflow:auto;
 }
 
 code {
@@ -163,28 +138,7 @@ input{
   background-color: #FE6F6B;
 }
 
-.timer-container {
-  display: flex;
-  flex:2;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  position: relative;
-  z-index: 2;
-}
 
-.time-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 15rem;
-  width: 15rem;
-  border-radius: 7.5rem;
-  color:#efefef;
-  background: #151932;
-  font-size: 3.5rem;
-  box-shadow: 1rem 1.5rem 2rem rgba(0,0,0,0.6)
-}
 
 .button-wrapper {
   display: flex;
@@ -238,4 +192,57 @@ button:hover{
   margin-right: 0.3rem;
   text-align: center;
   font-size: 22pt;
+}
+
+.timer-container {
+  display: flex;
+  flex:2;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  position: relative;
+  z-index: 2;
+  float:left;
+  width: auto;
+}
+
+.timer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  width: fit-content;
+  margin-left:120px;
+}
+
+.task-container{
+  height:40%;
+  /* border: 3px solid black; */
+  border-radius: 4%;
+  padding:0.5em 1em;
+  margin:  5% 10%;
+  width: fit-content;
+  display: flex;
+  /* justify-content: center; */
+  align-items: space-between;
+  flex-direction:column;
+}
+
+.task-box{
+  width: 190px;
+  background-color: #efefef;
+  color:grey;
+  padding: 5px 10%;
+  margin: 3%;
+  width:100%;
+}
+
+.task-input{
+  padding:0;
+  margin:auto;
+  height: 2em;
+  border:none;
+}
+.crossed-line{
+  text-decoration: line-through;
 }
