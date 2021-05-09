@@ -234,15 +234,22 @@ button:hover{
   color:grey;
   padding: 5px 10%;
   margin: 3%;
-  width:100%;
+  width:14.1em;
+  border-radius: 12px;
 }
 
 .task-input{
   padding:0;
   margin:auto;
-  height: 2em;
+  height: 2.5em;
   border:none;
 }
 .crossed-line{
+  text-decoration: line-through;
+}
+input[type=checkbox]:checked {
+  text-decoration: line-through;
+}
+.input-task:checked{
   text-decoration: line-through;
 }
