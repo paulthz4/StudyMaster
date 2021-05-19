@@ -1,4 +1,4 @@
-import React,{useEffect, useContext} from 'react';
+ import React,{useEffect, useContext} from 'react';
 import SetTimer from './components/SetTimer'
 import { SettingsContext } from './context/SettingsContext';
 import Button from './components/Button';
@@ -48,7 +48,7 @@ function App() {
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}
-                _callBack= {() => setCurrentTimer('work')}
+                _callBack= {() => setCurrentTimer('study')}
                 />
               </li>
               <li>

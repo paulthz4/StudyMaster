@@ -18,7 +18,8 @@ const CountdownAnimation = ({key, timer, animate, children})=> {
       size={320}
       trailColor='#151932'
       onComplete={ () => {
-        stopStudying();
+          stopStudying();
+          alert("timer is done");
       }}
     >
         {children}

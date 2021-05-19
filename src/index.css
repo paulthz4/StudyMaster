@@ -59,6 +59,10 @@ code {
   top:10%;
 }
 
+#i{
+    list-style-type:none;
+}
+
 .root{
   position: relative;
   /* z-index: 0; */
@@ -163,6 +167,14 @@ button {
   box-shadow: 4px 5px 0px black;
 }
 
+.small-btns{
+    width:fit-content;
+    font-size:small;
+    height:fit-content;
+    padding: 6% auto;
+    background-color: grey;
+}
+  
 button:hover{
   animation:buttonDown 0.5s;
   animation-fill-mode: forwards ;
@@ -252,4 +264,14 @@ input[type=checkbox]:checked {
 }
 .input-task:checked{
   text-decoration: line-through;
+}
+
+.task-btns{
+  width:"fit-content";
+  background-color:#1f2d88;
+  font-size:small;
+  height: auto;
+}
+.task-btns:hover{
+  background-color: #0C0E1B;
 }
