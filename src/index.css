@@ -1,6 +1,6 @@
 @keyframes buttonDown{
   from {box-shadow: 4px 5px 0px black;}
-  to {background-color: #540b0e;
+  to {
     transform: translateY(2px);
     box-shadow:none;
   }
