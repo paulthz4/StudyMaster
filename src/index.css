@@ -241,19 +241,26 @@ button:hover{
 }
 
 .task-box{
-  width: 190px;
+  width: fit-content;
   background-color: #efefef;
   color:grey;
   padding: 5px 10%;
   margin: 3%;
-  width:14.1em;
+  /* width:14.1em; */
   border-radius: 12px;
+}
+.task-box p{
+  width: 14em;
+}
+
+.task-box p input{
+  margin-right: "15px";
 }
 
 .task-input{
-  padding:0;
-  margin:auto;
-  height: 2.5em;
+  padding:1%;
+  margin:auto 1em;
+  height: 2em;
   border:none;
 }
 .crossed-line{
