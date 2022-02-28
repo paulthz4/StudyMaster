@@ -4,17 +4,9 @@ export function TaskList() {
     let i = <div className="task-box">
         <p style={{ width: "14.1em" }}><input style={{ marginRight: "15px" }} type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /><span style={{ paddingLeft: "9px" }}>25</span></p>
     </div>;
-    const [tasks, setTasks] = useState([i,i,i]);
+    const [tasks, setTasks] = useState([i,i]);
     const listStyle = 'list-style-type:none';
-    function addTask() {
-        return <div className="task-box">
-            <p style={{ width: "14.1em" }}><input style={{ marginRight: "15px" }} type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /><span style={{ paddingLeft: "9px" }}>25</span></p>
-        </div>;
-    };
-    function removeTasks() {
-        setTasks(tasks.shift());
-    }
-    
+        
     return (
     <div className="task-container">
             <ul>
