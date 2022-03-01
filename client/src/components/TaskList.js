@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+import Button from './Button';
 
 export function TaskList() {
-    let i = <div className="task-box">
-        <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
+  //const [tasks, setTasks] = useState([]);
+  
+  let i = <div className="task-box">
+      <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
     </div>;
-    const [tasks, setTasks] = useState([i,i]);
-    
+    const [task, setTask] = useState("");
+    const submitTask = () =>{
+      Axios.post("http://localhost:3001/api/insert", {taskName: task}).then(()=>{
+        alert("sucessful insert");
+      });
+    }
     return (
     <div className="task-container">
             <ul>
-                {tasks.map((item, index) => <li id='i' key={index}>{item}</li>)}
+                {/* {task.map((item, index) => <li id='i' key={index}>{item}</li>)} */}
+                <li><div className="task-box">
+                    <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
+                  </div>
+                </li>
                 
+                <li><div className="task-box">
+                    <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
+                  </div>
+                </li>
+                
+                <li><div className="task-box">
+                    <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
+                  </div>
+                </li>
+                <li><button onClick={submitTask}>Submit to database</button></li>
             </ul>
+            
       {/*<div>
                 <button onClick={addTask} className="small-btns" >Add Task</button>
       </div>

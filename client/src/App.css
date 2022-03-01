@@ -22,7 +22,9 @@ code {
   background: rgb(39,42,85);
   background: radial-gradient(circle, #1E2140 0%, #151932 65%); 
 }
-
+li{
+list-style: none;
+}
 .container h1 {
   font-size:2.6rem;
   margin-bottom:0.2rem;

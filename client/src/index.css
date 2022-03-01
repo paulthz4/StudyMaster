@@ -224,14 +224,14 @@ button:hover{
   justify-content: center;
   font-size: 2.5rem;
   width: fit-content;
-  margin-left:120px;
+  margin:auto;
 }
 
 .task-container{
-  height:40%;
+  height:fit-content;
   /* border: 3px solid black; */
   border-radius: 4%;
-  padding:0.5em 1em;
+  padding:auto;
   margin:  5% 10%;
   width: fit-content;
   display: flex;
@@ -257,6 +257,15 @@ button:hover{
   margin-right: "15px";
 }
 
+/* ul{
+  width:fit-content;
+  height:fit-content;
+
+} */
+
+li{
+list-style: none;
+}
 .task-input{
   padding:1%;
   margin:auto 1em;
