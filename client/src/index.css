@@ -207,15 +207,22 @@ button:hover{
 }
 
 .timer-container {
+  height: fit-content;
+  width: fit-content;
   display: flex;
   flex:2;
   align-items: center;
   justify-content: center;
-  height: fit-content;
   position: relative;
   z-index: 2;
   float:left;
-  width: auto;
+}
+
+@media(max-width: 800px){
+  .timer-container{
+      flex-direction: column;
+      align-items: center;
+  }
 }
 
 .timer-wrapper {
@@ -229,11 +236,11 @@ button:hover{
 
 .task-container{
   height:fit-content;
+  width: fit-content;
   /* border: 3px solid black; */
   border-radius: 4%;
   padding:auto;
-  margin:  5% 10%;
-  width: fit-content;
+  margin:  auto;
   display: flex;
   /* justify-content: center; */
   align-items: space-between;
@@ -242,20 +249,24 @@ button:hover{
 
 .task-box{
   width: fit-content;
+  height:fit-content;
   background-color: #efefef;
   color:grey;
-  padding: 5px 10%;
-  margin: 3%;
+  padding: auto;
+  margin: auto;
   /* width:14.1em; */
   border-radius: 12px;
 }
 .task-box p{
-  width: 14em;
+  width:fit-content;
+  height:fit-content;
+  padding: 0.5em 1em;
 }
 
-.task-box p input{
-  margin-right: "15px";
-}
+/* .task-box p input{
+  margin-right: auto;
+  padding-left: 1em;
+} */
 
 /* ul{
   width:fit-content;
@@ -264,12 +275,13 @@ button:hover{
 } */
 
 li{
-list-style: none;
+  list-style: none;
+  margin: 1em auto;
 }
 .task-input{
-  padding:1%;
-  margin:auto 1em;
-  height: 2em;
+  padding: 1em;
+  margin: 0.5em 1em;
+  height: 1em;
   border:none;
 }
 .crossed-line{
