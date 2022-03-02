@@ -1,6 +1,6 @@
-export function Cloud(){
+export function Cloud(props){
   return(
-    <div class="cloud">
+    <div id={props.id} class="cloud">
     </div>
   );
 }

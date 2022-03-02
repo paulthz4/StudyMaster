@@ -10,8 +10,8 @@ import Sun from './components/Sun';
 ReactDOM.render(
   <SettingsContextProvider>
     {/* <Sun/> */}
-    <div className="cloud" style={{top:"12%"}}></div>
-    <div className="cloud"  style={{top:"50%"}}></div>
+    {/* <div className="cloud" style={{top:"12%"}}></div>
+    <div className="cloud"  style={{top:"50%"}}></div> */}
     <App />
     </SettingsContextProvider>,
   document.getElementById('root')
