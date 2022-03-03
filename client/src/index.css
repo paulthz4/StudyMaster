@@ -20,6 +20,18 @@
   }
 }
 
+@media(max-width: 800px){
+  .timer-container{
+      flex-direction: column;
+      align-items: center;
+      margin: auto;
+  }
+  
+  .labels{
+    display:flex;
+    flex-direction: column;
+  }
+}
 
 body {
   margin: 0;
@@ -119,6 +131,7 @@ code {
 input{
   outline:none;
 }
+
 .container .labels {
   list-style: none;
   display: flex;
@@ -213,28 +226,24 @@ button:hover{
   position: relative;
   z-index: 2;
   float:left;
+  font-size: 2em;
 }
 
-@media(max-width: 800px){
-  .timer-container{
-      flex-direction: column;
-      align-items: center;
-  }
+.timer-container div{
 }
-
-.timer-wrapper {
+/* .timer-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
   width: fit-content;
   margin:auto;
-  margin-right: 1em;
-}
+} */
 
 .task-container{
   height:fit-content;
   width: fit-content;
+  font-size: small;
   /* border: 3px solid black; */
   /* border-radius: 4%; */
   padding:auto;

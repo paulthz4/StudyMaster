@@ -32,7 +32,7 @@ export function TaskList() {
                     <p ><input type="checkbox" /><input className="task-input" type="text" placeholder="Task name" /></p>
                   </div>
                 </li>
-                <li><button onClick={submitTask}>Submit to database</button></li>
+                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={submitTask}>Submit to database</button></li>
             </ul>
             
       {/*<div>
