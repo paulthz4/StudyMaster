@@ -25,7 +25,7 @@ const CountdownAnimation = ({key, timer, animate, children})=> {
         }
     };
   return(
-    <CountdownCircleTimer
+    <CountdownCircleTimer style={{fontSize: "2.5rem"}}
       key = {key}
       isPlaying={animate}
       duration={timer*60}

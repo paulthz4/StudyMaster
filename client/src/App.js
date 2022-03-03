@@ -68,24 +68,24 @@ function App() {
             
             <Button title='Settings' _callBack={SettingButton}/>
             <div  className='timer-container'>
-              <div className='timer-wrapper'>
-                <CountdownAnimation
+              {/* <div className='timer-wrapper'> */}
+                <CountdownAnimation style={{fontSize:"2.5rem"}}
                   key={pomodoro}
                   timer={pomodoro}
                   animate={startAnimate}
                 >
                   {children}
                 </CountdownAnimation>
-              </div>
+              {/* </div> */}
               <TaskList/>
-              </div>             
+            </div>             
 
              
-              <div className='button-wrapper'>
-                <Button title='Start' className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}/>
-                <Button title='Pause' className="timer-btns" activeClass={startAnimate? 'active' : undefined} _callBack={pauseStudying}/>
-                {/* <button className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}>Start</button> */}
-              </div>
+          <div className='button-wrapper'>
+            <Button title='Start' className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}/>
+            <Button title='Pause' className="timer-btns" activeClass={startAnimate? 'active' : undefined} _callBack={pauseStudying}/>
+            {/* <button className="timer-btns" activeClass={!startAnimate? 'active' : undefined} _callBack={startStudying}>Start</button> */}
+          </div>
               
             </> : <SetTimer/> }
         
