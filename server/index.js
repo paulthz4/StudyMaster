@@ -12,32 +12,16 @@ const db = mysql.createPool({
   port: '3306'
 });
 
-// const connection = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: 'password',
-//   database: 'studymaster',
-//   post: '3306'
-// });
-
-// const sqlInsert = "INSERT INTO tasks (taskName, completed) VALUES ('clean room', true);";
-
-// connection.query(sqlInsert, (err, rows)=>{
-//   if(err) throw err
-//   else{
-//     console.log(rows);
-//   }
-// })
 app.use(cors());
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.post('/api/insert', (req, res)=>{
-  const task = req.body.task;
+  const tasks = [[req.body.taskName1,false], [req.body.taskName2, false],[req.body.taskName3, true]];
 
-  const sqlInsert = "INSERT INTO tasks (taskName, completed) VALUES (?,false);";
-  db.query(sqlInsert, [task],(err, result)=>{
+  const sqlInsert = "INSERT INTO tasks (taskName, completed) VALUES ?;";
+  db.query(sqlInsert, [tasks],(err, result)=>{
     res.send("Go walk your dog")
   });
 });
