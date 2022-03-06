@@ -21,7 +21,6 @@ export function TaskList() {
     }
     
     const handleChange = (e) =>{
-      console.log(task1);
       switch(e.target.name){
         case 'task1':
           setTask1(e.target.value);
