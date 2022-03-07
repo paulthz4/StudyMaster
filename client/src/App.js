@@ -1,4 +1,5 @@
- import React,{useEffect, useContext} from 'react';
+ import React,{useEffect,useState,useContext,useRef} from 'react';
+ import Axios from 'axios';
 import SetTimer from './components/SetTimer'
 import { SettingsContext } from './context/SettingsContext';
 import Button from './components/Button';
@@ -11,8 +12,11 @@ import Cloud from './components/Cloud';
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
-  const animationRef = React.useRef(null);
-  React.useEffect(() => {
+  
+  const [tasksList, setTasksList] = useState([]);
+  
+  const animationRef = useRef(null);
+  useEffect(() => {
     animationRef.current = anime({
       targets: "#title2 path",
       strokeDashoffset: [anime.setDashoffset, 0],
@@ -27,7 +31,11 @@ function App() {
     });
   },[]);
   
-  
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setTasksList(response.data);
+    })
+  }, []);
   return (
     <div className="container">
     
@@ -48,6 +56,12 @@ function App() {
       
         {pomodoro !== 0 ?
             <>
+            <ul id="task-list">
+              { tasksList.map((task) =>{
+                  return <li><span>Task {task.idtasks}:</span> {task.taskName} Completed: {task.completed}</li>
+                })
+              }
+            </ul>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}

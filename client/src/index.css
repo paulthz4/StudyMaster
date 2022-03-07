@@ -148,6 +148,18 @@ input{
   background-color: #ffb546;
 }
 
+#task-list{
+  position:absolute;
+  right:5%;
+  z-index:2;
+}
+#task-list li{
+  color:#0C0E1B;
+  
+}
+#task-list span{
+  font-weight: bold;
+}
 /* is this used? */
 .active-label {
   color: #0C0E1B;
@@ -190,10 +202,9 @@ button {
 }
   
 button:hover{
-  transition:0.5s;
+  transition:0.3s;
   transform: translateY(2px);
   box-shadow:none;
-  /* color: #ffffff; */
   text-shadow: 0px 0px 10px #f5f5f5, 0px 0px 20px #f5f5f5;
   background-color: rgb(138, 19, 23);
 }
