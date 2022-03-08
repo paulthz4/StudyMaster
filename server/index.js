@@ -33,7 +33,13 @@ app.post('/api/insert', (req, res)=>{
   });
 });
 
-
+app.post("/api/delete", (req,res)=>{
+  const sqlDelete = "DELETE FROM tasks;";
+  
+  db.query(sqlDelete, (err,result)=>{
+    console.log(err);
+  })
+});
 
 app.listen(3001, () => {
   console.log("running on port 3001");

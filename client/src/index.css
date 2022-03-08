@@ -154,10 +154,20 @@ input{
 #task-list{
   position:absolute;
   right:5%;
-  z-index:2;
+  z-index:0;
+  opacity: 0.3;
+  transition: z-index, color, opacity, 0.7s;
+  transition-timing-function: ease;
 }
-#task-list li{
+
+#task-list:hover{
+  z-index:2;
   color:#0C0E1B;
+  opacity: 1;
+}
+
+#task-list li{
+  /* color:#2d2e38; */
   
 }
 #task-list span{
@@ -193,6 +203,7 @@ button {
   font-size: 15pt;
   box-shadow: 4px 5px 0px black;
   letter-spacing: 1px;
+  transition: box-shadow, text-shadow, background-color,0.3s;
 }
 
 .small-btns{
@@ -205,7 +216,6 @@ button {
 }
   
 button:hover{
-  transition:0.3s;
   transform: translateY(2px);
   box-shadow:none;
   text-shadow: 0px 0px 10px #f5f5f5, 0px 0px 20px #f5f5f5;

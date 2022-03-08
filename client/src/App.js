@@ -6,14 +6,15 @@ import Button from './components/Button';
 import SettingButton from './context/SettingsContext';
 import CountdownAnimation from './components/CountdownAnimation';
 import anime from 'animejs';
-import TaskList from './components/TaskList';
+import CurrentTasks from './components/CurrentTasks';
+import TasksList from './components/TasksList';
 import Cloud from './components/Cloud';
 
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
   
-  const [tasksList, setTasksList] = useState([]);
+  
   
   const animationRef = useRef(null);
   useEffect(() => {
@@ -31,11 +32,6 @@ function App() {
     });
   },[]);
   
-  useEffect(() =>{
-    Axios.get("http://localhost:3001/api/get").then((response) => {
-      setTasksList(response.data);
-    })
-  }, []);
   return (
     <div className="container">
     
@@ -56,12 +52,7 @@ function App() {
       
         {pomodoro !== 0 ?
             <>
-            <ul id="task-list">
-              { tasksList.map((task) =>{
-                  return <li><span>Task {task.idtasks}:</span> {task.taskName} Completed: {task.completed}</li>
-                })
-              }
-            </ul>
+            <TasksList/>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}
@@ -91,7 +82,7 @@ function App() {
                   {children}
                 </CountdownAnimation>
               {/* </div> */}
-              <TaskList/>
+              <CurrentTasks/>
             </div>             
 
              

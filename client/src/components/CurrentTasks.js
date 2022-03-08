@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Button from './Button';
 
-export function TaskList() {
+export function CurrentTasks() {
     const [task1, setTask1] = useState("");
     const [task2,setTask2] = useState("");
     const [task3, setTask3] =  useState("");
-    const [tasksList, setTasksList] = useState([]);
+    
     const submitTask = () =>{
       console.log(task1+", "+task2+", "+task3)
       Axios.post("http://localhost:3001/api/insert", {
@@ -19,14 +19,6 @@ export function TaskList() {
         
       });
     }
-    // let data = " "+tasksList.forEach((e) =>{
-    //   "task Name: " + e.taskName + "completed:" + e.completed;
-    // });
-    useEffect(() =>{
-      Axios.get("http://localhost:3001/api/get").then((response) => {
-        setTasksList(response.data);
-      })
-    }, []);
     
     const handleChange = (e) =>{
       switch(e.target.name){
@@ -64,4 +56,4 @@ export function TaskList() {
     </div>
   );
 }
-export default TaskList;
+export default CurrentTasks;
