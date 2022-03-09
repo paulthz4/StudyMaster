@@ -37,18 +37,17 @@ export function CurrentTasks() {
     return (
     <div className="task-container">
             <ul>
-                {/* {task.map((item, index) => <li id='i' key={index}>{item}</li>)} */}
                 <li><div className="task-box">
-                    <p ><input type="checkbox" /><input className="task-input" name='task1' onChange={handleChange} type="text" placeholder="Task name" /></p>
+                    <p ><input type="checkbox" /><input className="task-input" name='task1' onChange={(e)=>handleChange(e)} type="text" placeholder="Task name" /></p>
                   </div>
                 </li>
                 <li><div className="task-box">
-                    <p ><input type="checkbox" /><input className="task-input" name='task2' onChange={handleChange} type="text" placeholder="Task Name" /></p>
+                    <p ><input type="checkbox" /><input className="task-input" name='task2' onChange={(e)=>handleChange(e)} type="text" placeholder="Task Name" /></p>
                   </div>
                 </li>
                 
                 <li><div className="task-box">
-                    <p ><input type="checkbox" /><input className="task-input" name='task3'onChange={handleChange} type="text" placeholder="Task name" /></p>
+                    <p ><input type="checkbox" /><input className="task-input" name='task3'onChange={(e)=>handleChange(e)} type="text" placeholder="Task name" /></p>
                   </div>
                 </li>
                 <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={submitTask}>Submit</button></li>
