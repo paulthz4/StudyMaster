@@ -33,7 +33,7 @@ app.post('/api/insert', (req, res)=>{
   });
 });
 
-app.post("/api/delete", (req,res)=>{
+app.delete("/api/delete", (req,res)=>{
   const sqlDelete = "DELETE FROM tasks;";
   
   db.query(sqlDelete, (err,result)=>{

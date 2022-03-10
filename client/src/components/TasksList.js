@@ -3,10 +3,10 @@ import Axios from 'axios';
 
 function CurrentTasks(){
   const [tasksList, setTasksList] = useState([]);
+  
   const deleteAll = () =>{
-    
-      Axios.post("http://localhost:3001/api/delete").then(() => {
-        alert("succesfull delete")
+      Axios.delete("http://localhost:3001/api/delete").then(() => {
+        // alert("succesfull delete")
       })
     
   }
