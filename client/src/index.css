@@ -156,7 +156,7 @@ input{
   right:5%;
   z-index:0;
   opacity: 0.3;
-  transition: z-index, color, opacity, 0.7s;
+  transition: z-index, color, opacity, 0.5s;
   transition-timing-function: ease;
 }
 
@@ -178,8 +178,6 @@ input{
   color: #0C0E1B;
   background-color: #FE6F6B;
 }
-
-
 
 .button-wrapper {
   display: flex;
