@@ -20,7 +20,7 @@ function CurrentTasks(){
   return(
     <ul id="task-list">
               { tasksList.map((task) =>{
-                  return <li><span>Task {task.idtasks}:</span> {task.taskName} Completed: {task.completed}</li>
+                  return <li><span>Task Name:</span> {task.taskName} <span>Completed:</span> {task.completed}</li>
                 })
               }
               <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={deleteAll}>Delete All</button></li>

@@ -11,10 +11,6 @@ export function CurrentTasks() {
         taskName2: tasks.task2, 
         taskName3: tasks.task3
         })
-      .then(()=>{
-        alert("sucessful insert");
-        
-      });
     }
     
     const handleChange = (e) =>{

@@ -3,6 +3,7 @@ const app = express();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const PORT = 3001;
 
 const db = mysql.createPool({
   host: 'localhost',
@@ -41,6 +42,6 @@ app.delete("/api/delete", (req,res)=>{
   })
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("running on port 3001");
 });
