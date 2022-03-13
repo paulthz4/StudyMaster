@@ -6,7 +6,7 @@ function CurrentTasks(props){
   
   const deleteAll = () =>{
       Axios.delete("http://localhost:3001/api/delete").then(() => {
-        // alert("succesfull delete")
+        setTasksList(0);
       })
     
   }
@@ -14,7 +14,7 @@ function CurrentTasks(props){
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
     })
-  }, [props.tasksList]);
+  }, [props.tasksList, tasksList]);
   return(
     <ul id="task-list">
               {tasksList.map((task) =>{

@@ -6,7 +6,7 @@ const CountdownAnimation = ({key, timer, animate, children})=> {
     const { stopStudying } = useContext(SettingsContext); //useContext() method allows you to access contents of Setting.js
     useEffect(() => {
         // Update the document title using the browser API
-        document.title = `Timer Finished`;
+        // document.title = `Timer Finished`;
     });
     var blinkTab = function (message) {
         var oldTitle = document.title,                                                           /* save original title */
