@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
-function CurrentTasks(){
-  const [tasksList, setTasksList] = useState([]);
+function CurrentTasks(props){
+   const [tasksList, setTasksList] = useState([]);
   
   const deleteAll = () =>{
       Axios.delete("http://localhost:3001/api/delete").then(() => {
@@ -10,16 +10,14 @@ function CurrentTasks(){
       })
     
   }
-  
   useEffect(() =>{
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
     })
-  }, []);
-  
+  }, [props.tasksList]);
   return(
     <ul id="task-list">
-              { tasksList.map((task) =>{
+              {tasksList.map((task) =>{
                   return <li><span>Task Name:</span> {task.taskName} <span>Completed:</span> {task.completed}</li>
                 })
               }

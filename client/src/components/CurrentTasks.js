@@ -2,7 +2,7 @@ import React, { useState} from 'react';
 import Axios from 'axios';
 // import Button from './Button';
 
-export function CurrentTasks() {
+export function CurrentTasks(props) {
     const [tasks, setTasks] = useState({task1:"", task2:"", task3:""});
     
     const submitTask = () =>{
@@ -10,7 +10,9 @@ export function CurrentTasks() {
         taskName1: tasks.task1, 
         taskName2: tasks.task2, 
         taskName3: tasks.task3
-        })
+        }).then(props._callBack());
+        
+      
     }
     
     const handleChange = (e) =>{

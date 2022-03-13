@@ -14,7 +14,13 @@ function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
   
+  const [tasksList, setTasksList] = useState([]);
   
+  const retrieveData = () =>{
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setTasksList(response.data);
+    })
+  }
   
   const animationRef = useRef(null);
   useEffect(() => {
@@ -52,7 +58,7 @@ function App() {
       
         {pomodoro !== 0 ?
             <>
-            <TasksList/>
+            <TasksList tasksList={tasksList}/>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}
@@ -82,7 +88,7 @@ function App() {
                   {children}
                 </CountdownAnimation>
               {/* </div> */}
-              <CurrentTasks/>
+              <CurrentTasks _callBack={retrieveData}/>
             </div>             
 
              
