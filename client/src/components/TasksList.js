@@ -6,15 +6,23 @@ function CurrentTasks(props){
   
   const deleteAll = () =>{
       Axios.delete("http://localhost:3001/api/delete").then(() => {
-        setTasksList(0);
+        setTasksList(values => [0]);
       })
     
   }
+  //fetches data on first render
   useEffect(() =>{
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
     })
-  }, [props.tasksList, tasksList]);
+  }, []);
+  
+  //fetches data when new data is submited by props.tasksList
+  useEffect(() =>{
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setTasksList(response.data);
+    })
+  }, [props.tasksList]);
   return(
     <ul id="task-list">
               {tasksList.map((task) =>{
