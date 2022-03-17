@@ -20,6 +20,13 @@
   }
 }
 
+@keyframes waves{
+  
+  100%{
+  transform: rotate(360deg);
+  }
+}
+
 @media(max-width: 600px){
   .timer-container{
       flex-direction: column;
@@ -64,6 +71,99 @@ code {
   background-color: #2f8ba5;
   position: relative;
   /* z-index: 3; */
+}
+#waves{
+position: fixed;
+  z-index: 2;
+  color:#1f2d88;
+  /* background-color: #1f2d88; */
+}
+
+.waves{
+  position: fixed;
+  z-index: 1;
+  top:75%;
+  left:-15%;
+  width:70vw;
+  height:70vw;
+  background-color:#2193b3;
+  border-radius: 70% 60%;
+  animation:waves 20s infinite linear;
+  /* border: solid 1px black; */
+}
+
+.waves:nth-child(even){
+  animation-direction: reverse;
+  animation-fill-mode: forwards;
+  animation-delay: -1s;
+}
+
+.waves::after, .waves::before{
+  content:"";
+  position:relative;
+  display:inline-block;
+  background:inherit;
+  border-radius:inherit;
+}
+.waves::before2{
+  border-radius: 90% 40%;
+  left:-10%;
+  width:50%;
+  height:100%;
+  top:-5%;
+  height:500px;
+  animation-direction: normal;
+}
+.waves::afters{
+
+  border-radius: 100% 100% 50%;
+  left:5%;
+  width:50%;
+  top:-5%;
+  height:500px;
+  
+}
+.waves2{
+  position: fixed;
+  z-index: 1;
+  top:70%;
+  left:25%;
+  width:60vw;
+  height:60vw;
+  background-color:#2193b3;
+  border-radius: 70% 60%;
+  /* animation: waves 2s infinite reverse; */
+  animation: waves 20s linear infinite reverse ;
+}
+.waves3{
+  position: fixed;
+  z-index: 1;
+  top:70%;
+  right:-15%;
+  width:50vw;
+  height:50vw;
+  background-color:#2193b3;
+  border-radius: 70% 60%;
+  animation: waves 20s linear infinite  ;
+}
+
+.waves3::after, .waves3::before{
+  content:"";
+  position:relative;
+  display:inline-block;
+  background:inherit;
+  border-radius:inherit;
+  animation-direction: alternate;
+}
+.waves2::beforee{
+  border-radius: 40% 100%;
+  left:0;
+  width:50%;
+  height:100%;
+  top:-5%;
+  height:500px;
+  /* border: solid 1px black; */
+  animation-direction: reverse;
 }
 
 #cloud1{
