@@ -41,7 +41,12 @@
   }
   
   #task-list{
-  display: none;}
+  display: none;
+  }
+  
+  .waves,.waves2,.waves3{
+    display: none;
+  }
 }
 
 body {
