@@ -26,7 +26,7 @@ function CurrentTasks(props){
   return(
     <ul id="task-list">
               {tasksList.map((task) =>{
-                  return <li><span>Task Name:</span> {task.taskName} <span>Completed:</span> {task.completed} <button style={{fontSize:"small", width:"auto", height:"auto"}}>Delete</button></li>
+                  return <li><span>Task Name:</span> {task.taskName} <span>Completed:</span> {task.completed} <button className="task-list-button"  >Delete</button></li>
                 })
               }
               <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={deleteAll}>Delete All</button></li>

@@ -97,31 +97,6 @@ code {
   animation-delay: -1s;
 }
 
-.waves::after, .waves::before{
-  content:"";
-  position:relative;
-  display:inline-block;
-  background:inherit;
-  border-radius:inherit;
-}
-.waves::before2{
-  border-radius: 90% 40%;
-  left:-10%;
-  width:50%;
-  height:100%;
-  top:-5%;
-  height:500px;
-  animation-direction: normal;
-}
-.waves::afters{
-
-  border-radius: 100% 100% 50%;
-  left:5%;
-  width:50%;
-  top:-5%;
-  height:500px;
-  
-}
 .waves2{
   position: fixed;
   z-index: 1;
@@ -134,6 +109,7 @@ code {
   /* animation: waves 2s infinite reverse; */
   animation: waves 20s linear infinite reverse ;
 }
+
 .waves3{
   position: fixed;
   z-index: 1;
@@ -250,6 +226,13 @@ input{
   /* color:#2d2e38; */
   
 }
+
+.task-list-button{
+  font-size:11px;
+  width:min-width;
+  height:2.5em;
+}
+
 #task-list span{
   font-weight: bold;
 }
@@ -269,11 +252,11 @@ input{
 
 button {
   color:#ffffff;
+  background:#6b191c;
   padding: 0.5rem 1.2rem;
   border:none;
   border-radius:3rem;
-  margin:0.2rem;;
-  background:#6b191c;
+  margin:0.2rem;
   min-width: 90px;
   height: 60px;
   cursor: pointer;
@@ -281,15 +264,15 @@ button {
   font-size: 15pt;
   box-shadow: 4px 5px 0px black;
   letter-spacing: 1px;
-  transition: box-shadow, text-shadow, background-color,0.3s;
+  transition: box-shadow, 0.3s, text-shadow, background-color;
 }
 
 .small-btns{
-    width:fit-content;
-    font-size:small;
-    height:fit-content;
-    padding: 6% auto;
-    background-color: grey;
+  width:fit-content;
+  font-size:small;
+  height:fit-content;
+  padding: 6% auto;
+  background-color: grey;
     
 }
   
