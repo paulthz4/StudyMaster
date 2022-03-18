@@ -77,12 +77,6 @@ code {
   position: relative;
   /* z-index: 3; */
 }
-#waves{
-position: fixed;
-  z-index: 2;
-  color:#1f2d88;
-  /* background-color: #1f2d88; */
-}
 
 .waves{
   position: fixed;
@@ -150,25 +144,6 @@ position: fixed;
   background-color:#2193b3;
   border-radius: 70% 60%;
   animation: waves 20s linear infinite  ;
-}
-
-.waves3::after, .waves3::before{
-  content:"";
-  position:relative;
-  display:inline-block;
-  background:inherit;
-  border-radius:inherit;
-  animation-direction: alternate;
-}
-.waves2::beforee{
-  border-radius: 40% 100%;
-  left:0;
-  width:50%;
-  height:100%;
-  top:-5%;
-  height:500px;
-  /* border: solid 1px black; */
-  animation-direction: reverse;
 }
 
 #cloud1{
