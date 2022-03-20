@@ -26,7 +26,7 @@ app.get("/api/get", (req,res)=>{
 });
 
 app.post('/api/insert', (req, res)=>{
-  const tasks = [[req.body.taskName1,false], [req.body.taskName2, false],[req.body.taskName3, false]];
+  const tasks = [[req.body.firstTask.name, false], [req.body.secondTask.name, false],[req.body.thirdTask.name, false]];
 
   const sqlInsert = "INSERT INTO tasks (taskName, completed) VALUES ?;";
   db.query(sqlInsert, [tasks],(err, result)=>{
