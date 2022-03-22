@@ -26,9 +26,9 @@ app.get("/api/get", (req,res)=>{
 });
 
 app.post('/api/insert', (req, res)=>{
-  const tasks = [[req.body.firstTask.name, false], [req.body.secondTask.name, false],[req.body.thirdTask.name, false]];
+  const tasks = [[req.body.newTasks.task1.name], [req.body.newTasks.task2.name],[req.body.newTasks.task3.name]];
 
-  const sqlInsert = "INSERT INTO tasks (taskName, completed) VALUES ?;";
+  const sqlInsert = "INSERT INTO tasks (taskName) VALUES ?;";
   db.query(sqlInsert, [tasks],(err, result)=>{
     res.send("Go walk your dog")
   });
