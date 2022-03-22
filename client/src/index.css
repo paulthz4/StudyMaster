@@ -43,6 +43,10 @@
   #task-list{
   display: none;
   }
+  
+}
+
+@media(max-width: 900px){
   .waves,.waves2,.waves3{
     display: none;
   }
