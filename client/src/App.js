@@ -5,7 +5,7 @@ import { SettingsContext } from './context/SettingsContext';
 import Button from './components/Button';
 import SettingButton from './context/SettingsContext';
 import CountdownAnimation from './components/CountdownAnimation';
-import anime from 'animejs';
+import anime, { set } from 'animejs';
 import CurrentTasks from './components/CurrentTasks';
 import TasksList from './components/TasksList';
 import Cloud from './components/Cloud';
@@ -14,13 +14,17 @@ function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
   
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
-  
   const [tasksList, setTasksList] = useState([]);
   
-  const retrieveData = () =>{
+  const retrieveNewData = () =>{
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
-    })
+    });
+  }
+  
+  const deleteAll=()=>{
+    Axios.delete("http://localhost:3001/api/delete");
+    setTasksList([]);
   }
   
   useEffect(() => {
@@ -37,25 +41,7 @@ function App() {
       fill:"#ffffff",
     });
   },[]);
-  
-  useEffect(()=>{
-    anime({
-      targets: '#waves',
-      points: [
-        { value: [
-          '82.4 401 82.0001 457 65.0001C457 65.0001 597 12 693 12C789 12 860 44 860 44C860 44 960 84 1013 84C1085 84 1182 61 1268 36M1 22.0005C1 22.0005 103 84.0005 179 84.0005C255 84.0005 336 1.00049 415 1.00049C494 1.00049 650.995 84.0005 743 84.0005C875 84.0005 972 1.00049 1041 1.00049C1101 1.00049 1195 84.0005 1288 84.0005',
-          '70 41 118.574 59.369 111.145 132.631 60.855 84.631 20.426 60.369']
-        },
-        { value: '70 6 119.574 60.369 100.145 117.631 39.855 117.631 55.426 68.369' },
-        { value: '70 57 136.574 54.369 89.145 100.631 28.855 132.631 38.426 64.369' },
-        { value: '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369' }
-      ],
-      easing: 'easeOutQuad',
-      duration: 2000,
-      loop: true
-    })
-  })
-  
+    
   return (
     <div className="container">
         <svg id="title2" width="462" height="91" viewBox="0 0 462 91" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -79,14 +65,14 @@ function App() {
     <div className="waves"></div>
     <div className="waves2"></div>
     <div className='waves3'/>
-      <Cloud id="cloud1"/>
-      <Cloud id="cloud2"/>
+    <Cloud id="cloud1"/>
+    <Cloud id="cloud2"/>
       {/* <h1 style={{position:"relative", zIndex:"2"}}>Pomodoro</h1> */}
       <h2 style={{position:"relative", zIndex:"2"}}>Let's be productive </h2>
       
         {pomodoro !== 0 ?
             <>
-            <TasksList tasksList={tasksList}/>
+            <TasksList tasksList={tasksList} onDelete={deleteAll}/>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}
@@ -116,7 +102,7 @@ function App() {
                   {children}
                 </CountdownAnimation>
               {/* </div> */}
-              <CurrentTasks _callBack={retrieveData}/>
+              <CurrentTasks _callBack={retrieveNewData}/>
             </div>             
 
              
