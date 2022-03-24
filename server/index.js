@@ -42,6 +42,12 @@ app.delete("/api/delete", (req,res)=>{
   })
 });
 
+/** ------ FINISH IMPLEMENTING ----**/
+app.delete("api/deleteTask", (req,res)=>{
+  const task = [[req.body.task]];
+  const sqlDelete = "DELETE FROM tasks WHERE (taskName) = ?;";
+})
+
 app.listen(process.env.PORT || PORT, () => {
   console.log("running on port 3001");
 });

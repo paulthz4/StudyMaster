@@ -18,7 +18,7 @@ export function CurrentTasks(props) {
     const submitTasks = () =>{
       Axios.post("http://localhost:3001/api/insert", {
         newTasks: tasks
-        }).then(props._callBack());
+        }).then(()=>{props._callBack()});
     }
     // input text event handler
     const handleChange = (e) =>{
@@ -27,7 +27,7 @@ export function CurrentTasks(props) {
           name: e.target.value
         }}
       ));
-      console.log(tasks); 
+      // console.log(tasks); 
     }
     
     return (
