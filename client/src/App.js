@@ -27,6 +27,12 @@ function App() {
     setTasksList([]);
   }
   
+  useEffect(()=>{
+    Axios("http://localhost:3001/api/get").then((response)=>{
+      setTasksList(response.data);
+    });
+  },[])
+  
   useEffect(() => {
      anime({
       targets: "#title2 path",

@@ -3,7 +3,7 @@ import Axios from 'axios';
 // import Button from './Button';
 
 export function CurrentTasks(props) {
-    const [tasks, setTasks] = useState({
+    const [newTasks, setTasks] = useState({
       task1:{
         name:""
       }, 
@@ -17,7 +17,7 @@ export function CurrentTasks(props) {
     
     const submitTasks = () =>{
       Axios.post("http://localhost:3001/api/insert", {
-        newTasks: tasks
+        newTasks
         }).then(()=>{props._callBack()});
     }
     // input text event handler
