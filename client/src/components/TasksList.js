@@ -2,15 +2,15 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 
 function CurrentTasks(props){
-  const deleteTask=()=>{
-    Axios.delete("http://localhost3001/api/delete",{
-      // THE TASK BEING DELETED
-    });
+  const deleteTask=(id)=>{
+    Axios.delete(`http://localhost:3001/api/deleteTask/${id}`)
+    .then(()=>{props._callBack()});
+    
   }
   return(
     <ul id="task-list">
-              {props.tasksList.map((task, index) =>{
-                  return <li key={index}><span>Task Name:</span> {task.taskName} <button className="task-list-button"  onClick={deleteTask}>Delete</button></li>
+              {props.tasksList.map((val, index) =>{
+                  return <li key={val.idtasks} ><span>Task Name:</span> {val.taskName} <button className="task-list-button" id={val.idtasks} onClick={() => deleteTask(val.idtasks)}>Delete</button></li>
                 })
               }
               <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={props.onDelete}>Delete All</button></li>

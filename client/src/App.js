@@ -27,6 +27,12 @@ function App() {
     setTasksList([]);
   }
   
+  const deletedTask = () =>{
+    Axios.get("http://localhost:3001/api/get").then((response) => {
+      setTasksList(response.data);
+    });
+  }
+  
   useEffect(()=>{
     Axios("http://localhost:3001/api/get").then((response)=>{
       setTasksList(response.data);
@@ -78,7 +84,7 @@ function App() {
       
         {pomodoro !== 0 ?
             <>
-            <TasksList tasksList={tasksList} onDelete={deleteAll}/>
+            <TasksList tasksList={tasksList} onDelete={deleteAll} _callBack={deletedTask}/>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}

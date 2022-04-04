@@ -43,9 +43,12 @@ app.delete("/api/delete", (req,res)=>{
 });
 
 /** ------ FINISH IMPLEMENTING ----**/
-app.delete("api/deleteTask", (req,res)=>{
-  const task = [[req.body.task]];
-  const sqlDelete = "DELETE FROM tasks WHERE (taskName) = ?;";
+app.delete("/api/deleteTask/:id", (req,res)=>{
+  const taskId = req.params.id;
+  const sqlDelete = "DELETE FROM tasks WHERE idtasks = ?;";
+  db.query(sqlDelete, taskId,(err, result)=>{
+    if(err) console.log(err);
+  });
 })
 
 app.listen(process.env.PORT || PORT, () => {
