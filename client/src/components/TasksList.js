@@ -8,13 +8,16 @@ function CurrentTasks(props){
     
   }
   return(
-    <ul id="task-list">
-              {props.tasksList.map((val, index) =>{
-                  return <li key={val.idtasks} ><span>Task Name:</span> {val.taskName} <button className="task-list-button" id={val.idtasks} onClick={() => deleteTask(val.idtasks)}>Delete</button></li>
-                })
-              }
-              <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={props.onDelete}>Delete All</button></li>
-            </ul>
+  <> {props.tasksList.length > 0 &&
+      <ul id="task-list">
+                {props.tasksList.map((val, index) =>{
+                    return <li key={val.idtasks} ><span>Task Name:</span> {val.taskName} <button className="task-list-button" id={val.idtasks} onClick={() => deleteTask(val.idtasks)}>Delete</button></li>
+                  })
+                }
+                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={props.onDelete}>Delete All</button></li>
+              </ul>
+      }
+  </>            
   );
 }
 export default CurrentTasks;
