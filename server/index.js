@@ -42,7 +42,6 @@ app.delete("/api/delete", (req,res)=>{
   })
 });
 
-/** ------ FINISH IMPLEMENTING ----**/
 app.delete("/api/deleteTask/:id", (req,res)=>{
   const taskId = req.params.id;
   const sqlDelete = "DELETE FROM tasks WHERE idtasks = ?;";

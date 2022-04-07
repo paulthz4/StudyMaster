@@ -16,21 +16,28 @@ function App() {
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
   const [tasksList, setTasksList] = useState([]);
   
-  const retrieveNewData = () =>{
+  const retrieveNewData = () => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
     });
+  }
+  
+  const submitTasks =(newTasks)=>{
+   // console.log(newTasks)
+    Axios.post("http://localhost:3001/api/insert", {newTasks});
+    retrieveNewData();
   }
   
   const deleteAll=()=>{
     Axios.delete("http://localhost:3001/api/delete");
-    setTasksList([]);
+    //retrieveNewData();
+    setTasksList([])
   }
   
-  const deletedTask = () =>{
-    Axios.get("http://localhost:3001/api/get").then((response) => {
-      setTasksList(response.data);
-    });
+  const deletedTask = (id) =>{
+    console.log(id);
+    Axios.delete(`http://localhost:3001/api/deleteTask/${id}`);
+    retrieveNewData();
   }
   
   useEffect(()=>{
@@ -84,7 +91,7 @@ function App() {
       
         {pomodoro !== 0 ?
             <>
-            <TasksList tasksList={tasksList} onDelete={deleteAll} _callBack={deletedTask}/>
+            <TasksList tasksList={tasksList} onDelete={deleteAll} delete={deletedTask}/>
             <ul className='labels' style={{position:"relative", zIndex:"2"}}>
               <li>
                 <Button title='Study' activeClass={executing.active ==='work' ? 'active-label' : undefined}
@@ -107,14 +114,14 @@ function App() {
             <div  className='timer-container'>
               {/* <div className='timer-wrapper'> */}
                 <CountdownAnimation style={{fontSize:"2.5rem"}}
-                  key={pomodoro}
+                 // key={pomodoro}
                   timer={pomodoro}
                   animate={startAnimate}
                 >
                   {children}
                 </CountdownAnimation>
               {/* </div> */}
-              <CurrentTasks _callBack={retrieveNewData}/>
+              <CurrentTasks _callBack={retrieveNewData} submit={submitTasks}/>
             </div>             
 
              

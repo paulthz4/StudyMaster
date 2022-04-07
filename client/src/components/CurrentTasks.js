@@ -15,7 +15,8 @@ export function CurrentTasks(props) {
       }      
     });
     
-    const submitTasks = () =>{
+    const submitTasks = (tasks) =>{
+      
       Axios.post("http://localhost:3001/api/insert", {
         newTasks
         }).then(()=>{props._callBack()});
@@ -45,7 +46,7 @@ export function CurrentTasks(props) {
                     <p ><input className="task-input" name='task3'onChange={(e)=>handleChange(e)} type="text" placeholder="Task name" /></p>
                   </div>
                 </li>
-                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={submitTasks}>Submit</button></li>
+                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={()=>props.submit(newTasks)}>Submit</button></li>
             </ul>
     </div>
   );
