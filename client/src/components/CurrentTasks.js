@@ -15,11 +15,9 @@ export function CurrentTasks(props) {
       }      
     });
     
-    const submitTasks = (tasks) =>{
-      
-      Axios.post("http://localhost:3001/api/insert", {
-        newTasks
-        }).then(()=>{props._callBack()});
+    const submitTasks = () =>{
+      if(newTasks.task1.name !== "" && newTasks.task2.name !== "" && newTasks.task3.name !== "")
+        props.submit(newTasks);
     }
     // input text event handler
     const handleChange = (e) =>{
@@ -46,7 +44,7 @@ export function CurrentTasks(props) {
                     <p ><input className="task-input" name='task3'onChange={(e)=>handleChange(e)} type="text" placeholder="Task name" /></p>
                   </div>
                 </li>
-                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={()=>props.submit(newTasks)}>Submit</button></li>
+                <li><button style={{fontSize:"small", width:"auto", height:"auto"}} onClick={submitTasks}>Submit</button></li>
             </ul>
     </div>
   );

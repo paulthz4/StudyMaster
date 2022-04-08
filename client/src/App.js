@@ -12,9 +12,9 @@ import Cloud from './components/Cloud';
 
 function App() {
   const{pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startStudying, pauseStudying, updateExecute} = useContext(SettingsContext);
-  
-  useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
   const [tasksList, setTasksList] = useState([]);
+  useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
+ 
   
   const retrieveNewData = () => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
@@ -24,21 +24,26 @@ function App() {
   
   const submitTasks =(newTasks)=>{
    // console.log(newTasks)
-    Axios.post("http://localhost:3001/api/insert", {newTasks});
-    retrieveNewData();
+    Axios.post("http://localhost:3001/api/insert", {newTasks}).then(()=>retrieveNewData());
+    
   }
   
   const deleteAll=()=>{
-    Axios.delete("http://localhost:3001/api/delete");
-    //retrieveNewData();
-    setTasksList([])
+    Axios.delete("http://localhost:3001/api/delete");retrieveNewData();
+    console.log(tasksList)
   }
   
   const deletedTask = (id) =>{
     console.log(id);
-    Axios.delete(`http://localhost:3001/api/deleteTask/${id}`);
-    retrieveNewData();
+    Axios.delete(`http://localhost:3001/api/deleteTask/${id}`);retrieveNewData();
+    
   }
+  
+  // useEffect(()=>{
+  //   Axios("http://localhost:3001/api/get").then((response)=>{
+  //     setTasksList(response.data);
+  //   });
+  // },[setTasksList])
   
   useEffect(()=>{
     Axios("http://localhost:3001/api/get").then((response)=>{
@@ -114,7 +119,7 @@ function App() {
             <div  className='timer-container'>
               {/* <div className='timer-wrapper'> */}
                 <CountdownAnimation style={{fontSize:"2.5rem"}}
-                 // key={pomodoro}
+                  key={pomodoro}
                   timer={pomodoro}
                   animate={startAnimate}
                 >
