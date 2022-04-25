@@ -16,26 +16,28 @@ function App() {
   useEffect(() => {updateExecute(executing)},[executing, startAnimate, updateExecute]);
  
   
-  const retrieveNewData = () => {
-    Axios.get("http://localhost:3001/api/get").then((response) => {
+  async function retrieveNewData() {
+    await Axios.get("http://localhost:3001/api/get").then((response) => {
       setTasksList(response.data);
     });
   }
   
-  const submitTasks =(newTasks)=>{
+   async function submitTasks(newTasks){
    // console.log(newTasks)
     Axios.post("http://localhost:3001/api/insert", {newTasks}).then(()=>retrieveNewData());
     
   }
   
-  const deleteAll=()=>{
-    Axios.delete("http://localhost:3001/api/delete");retrieveNewData();
+  const deleteAll = async() =>{
+     Axios.delete("http://localhost:3001/api/delete");
+     await retrieveNewData();
     console.log(tasksList)
   }
   
-  const deletedTask = (id) =>{
+  const deletedTask = async(id)=>{
     console.log(id);
-    Axios.delete(`http://localhost:3001/api/deleteTask/${id}`);retrieveNewData();
+     await Axios.delete(`http://localhost:3001/api/deleteTask/${id}`).then(() =>{retrieveNewData()});
+     
     
   }
   
