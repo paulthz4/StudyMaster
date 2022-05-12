@@ -53,3 +53,4 @@ app.delete("/api/deleteTask/:id", (req,res)=>{
 app.listen(process.env.PORT || PORT, () => {
   console.log(`running on port ${PORT}`);
 });
+module.exports = app;
