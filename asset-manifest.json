@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/StudyMaster/static/css/main.d9fad175.chunk.css",
+    "main.js": "/StudyMaster/static/js/main.d25843da.chunk.js",
+    "main.js.map": "/StudyMaster/static/js/main.d25843da.chunk.js.map",
+    "runtime-main.js": "/StudyMaster/static/js/runtime-main.4c167f38.js",
+    "runtime-main.js.map": "/StudyMaster/static/js/runtime-main.4c167f38.js.map",
+    "static/js/2.d7169c51.chunk.js": "/StudyMaster/static/js/2.d7169c51.chunk.js",
+    "static/js/2.d7169c51.chunk.js.map": "/StudyMaster/static/js/2.d7169c51.chunk.js.map",
+    "index.html": "/StudyMaster/index.html",
+    "static/css/main.d9fad175.chunk.css.map": "/StudyMaster/static/css/main.d9fad175.chunk.css.map",
+    "static/js/2.d7169c51.chunk.js.LICENSE.txt": "/StudyMaster/static/js/2.d7169c51.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4c167f38.js",
+    "static/js/2.d7169c51.chunk.js",
+    "static/css/main.d9fad175.chunk.css",
+    "static/js/main.d25843da.chunk.js"
+  ]
+}
